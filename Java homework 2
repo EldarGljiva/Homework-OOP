@@ -1,0 +1,216 @@
+//TASK 1
+/*Create a program that asks the user for a password. If the password is right, a secret message is shown to the user.
+
+    Scanner sc = new Scanner(System.in);
+    String pass = "Mikel";
+    String other_try;
+    
+    while(true){
+      System.out.println("Enter password: ");
+    String trypass = sc.nextLine();
+      if(trypass.equals(pass)){
+        System.out.println("Password is correct!");
+        System.out.println("SECRET MESSAGE: POKEMON");
+        break;
+      }
+      else{
+     
+         System.out.println("Try again(3 chances left) : ");
+        int count = 3;
+        for(int i =0;i<count;i++){
+          System.out.println("Try again:");
+          other_try = sc.nextLine();
+          if(other_try.equals(pass)){
+            count = 5;
+              System.out.println("Password is correct!");
+        System.out.println("SECRET MESSAGE: POKEMON");
+        
+            break;
+          }
+        }
+       break;
+      
+      } 
+    }
+   */
+//TASK 2
+    /*Create a program that asks the user for three numbers and then prints their sum:
+
+
+Scanner sc= new Scanner(System.in);
+    System.out.println("Enter first number: ");
+    int first = sc.nextInt();
+      System.out.println("Enter second number: ");
+    int second = sc.nextInt();
+      System.out.println("Enter third number: ");
+    int third = sc.nextInt();
+    int sum = 0;
+    sum = first + second + third;
+    System.out.println("Sum is "+ sum);  */
+    
+//TASK 3
+
+ /*  Create a program that reads numbers from the user and prints their sum. The program should stop asking for numbers when the user enters the number 0:  
+int sum=0;
+  while(true){
+    Scanner sc= new Scanner(System.in);
+    System.out.println("Enter number: ");
+    int first = sc.nextInt();
+     sum = sum + first;
+    if(first == 0 ){
+      break;
+      
+    }
+
+      System.out.println("Sum now: "+ sum);
+    }
+    System.out.println("Sum in the end: "+ sum);
+}
+    
+      
+}*/
+
+// TASK 4
+
+/*Create a program that asks the user for the first number and the last number and then prints all numbers between those two. Use a while loop. 
+
+
+
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter first number: ");
+    int first;
+    first= sc.nextInt();
+System.out.println("Enter last number: ");
+    int last = sc.nextInt();
+   
+
+    int num = first;
+    while(num <=last){
+
+       System.out.println(num);
+
+      num++;
+    } */
+
+
+
+
+
+
+//TASK 5
+
+
+ Scanner reader = new Scanner(System.in);
+
+    System.out.print("Enter an exponent: ");
+    int exponent = reader.nextInt();
+
+    int sum = 0;
+
+    while(exponent >= 0) {
+      sum = sum + (int)Math.pow(2, exponent);
+      exponent--;
+    }
+
+    System.out.println("The sum is: " + sum);
+
+
+//TASK 6
+
+/*Create a method printText that prints the following string of characters: "In the beginning there were the swamp, the hoe and Java." and a line break.
+Develop the program by adding the following feature: the main program should ask the user how many times the text should be printed 
+(meaning how many times the method is called). */
+
+import java.util.Scanner;
+
+
+public class Main {
+
+  public static void printText(){
+    System.out.println("In the beginning there were the swamp, the hoe and Java.");
+  }
+  public static void main(String[] args) {
+
+
+  Scanner sc = new Scanner(System.in);
+    System.out.println("How many times should the method be printed: ");
+  int times = sc.nextInt();
+
+    for( int i = 0; i < times ; i ++){
+      printText();
+    }
+    
+  }
+}
+
+
+//TASK 7
+
+/*Create a method printStars that prints the given amount of stars and a line break. Create the method in the following body:*/
+import java.util.Scanner;
+
+
+public class Main {
+
+  public static void printStars(int amount){
+    for(int i = 0; i < amount ; i++){
+      System.out.print('*');
+    }
+  }
+  public static void main(String[] args) {
+
+    
+    printStars(3);
+  }
+}
+
+
+
+
+//TASK 8
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+
+public static int drawNumber(){
+  Random eldar = new Random();
+  return eldar.nextInt(101);
+  
+  
+}
+  public static void main(String[] args) {
+
+    Scanner sc = new Scanner(System.in);
+    int random = drawNumber();
+    
+
+
+    while(true){
+      System.out.print("Guess the number: ");
+      int num = sc.nextInt();
+
+
+      if(num==random){
+             System.out.println("Congratulations, your guess is correct!");
+         break;
+      }
+      
+         
+    else if(num > random) {
+          
+          System.out.println("The number is lesser");
+        } 
+    else if(num < random) {
+         
+          System.out.println("The number is greater");
+        }
+      
+    }
+    
+  }
+}
+
+
+
