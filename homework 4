@@ -1,0 +1,143 @@
+/*public class Main {
+    public static void main(String[] args) {
+       // LyyraCard card = new LyyraCard(5);
+     LyyraCard Pekka = new LyyraCard(20);
+      LyyraCard Brian = new LyyraCard(30);
+    
+
+    Pekka.payGourmet();
+      Brian.payEconomical();
+
+
+      System.out.println(Pekka);
+      System.out.println(Brian);
+
+      Pekka.loadMoney(20);
+       System.out.println(Pekka);
+      Brian.payGourmet();
+
+      System.out.println("Peka: " + Pekka);
+      System.out.println("Brian: " + Brian);
+    }
+}
+/// SECOND FILE LyyraCard:
+
+
+public class LyyraCard {
+    private double balance;
+
+    public LyyraCard(double balanceAtStart) {
+      this.balance = balanceAtStart;
+      
+    }
+
+    public String toString() {
+        return "the card has " + this.balance +" euros";
+    }
+  public void payEconomical() {
+    if(this.balance < 2.5){
+      System.out.println("Not enought money!");
+    }
+    else{
+    this.balance  -= 2.5;
+}
+  }
+public void payGourmet() {
+   if(this.balance < 4.0){
+      System.out.println("Not enought money!");
+    }
+    else{
+    this.balance  -= 4.0;
+}
+   
+}
+
+  public void loadMoney(double amount) {
+   
+ if(amount >= 0) {
+      if(this.balance + amount > 150.0) {
+        this.balance = 150.0;
+      } else {
+        this.balance += amount;
+      }
+    }
+}
+
+
+}
+ */
+ 
+ 
+ 
+ 
+/*public class Main {
+    public static void main(String[] args) {
+        Dice dice = new Dice(6);
+
+        int i = 0;
+        while ( i < 10 ) {
+            System.out.println( dice.roll() );
+            i++;
+        }
+    }
+}
+
+
+// SECOND FILE Dice.java:
+
+import java.util.Random;
+
+public class Dice {
+    private Random random;
+    private int numberofSides;
+
+    public Dice(int numberofSides){
+        this.numberofSides = numberofSides;
+        random = new Random();
+
+    }
+
+    public int roll() {
+
+     return random.nextInt(1,numberofSides);
+      
+          // we'll get a random number in the range 1-numberOfSides<
+    }
+}
+*/
+
+/*Create the method public static void combine(ArrayList<Integer> first, ArrayList<Integer> second) that inserts the items in a list called second to a list called first. The order of the items can be anything and the same item can appear in the list more than once.  
+  
+import java.util.ArrayList;
+
+class Main {
+
+  public static void combine(ArrayList<Integer> first, ArrayList<Integer> second){
+
+    for(int integer: second){
+      first.add(integer);
+    }
+
+    //first.addAll(second); //second option
+    
+  }
+  public static void main(String[] args) {
+
+
+ArrayList<Integer> list1 = new ArrayList<Integer>();
+ArrayList<Integer> list2 = new ArrayList<Integer>();
+
+list1.add(4);
+list1.add(3);
+
+list2.add(5);
+list2.add(10);
+list2.add(7);
+
+    
+combine(list1,list2);
+
+
+    System.out.println(list1);
+  }
+}*/
