@@ -138,7 +138,7 @@ public class Main {
         words.add(word);
       }
 }
-    Collections.sort(words);
+    
     System.out.println(words);
 }
 }
