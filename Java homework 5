@@ -1,0 +1,110 @@
+// MAIN FILE
+
+public class Main {
+    public static void main(String[] args) {
+        Team barcelona = new Team("FC Barcelona");
+ 
+        Player brian = new Player("Brian");
+        Player pekka = new Player("Pekka", 39);
+        barcelona.addPlayer(brian);
+        barcelona.addPlayer(pekka);
+        barcelona.addPlayer(new Player("Mikael", 1)); // works similarly as the above
+ 
+        System.out.println("Total goals: " + barcelona.goals());
+    }
+}
+
+// TEAM CLASS FILE
+
+import java.util.ArrayList;
+
+public class Team{
+  
+  private String name;
+  private ArrayList<Player> players;
+  private int maxSize;
+  int size;
+
+
+
+public Team(String name){
+  this.name = name;
+  this.players = new ArrayList<Player>();
+  this.maxSize = 16;
+  this.size = 0;
+}
+
+  public String getName(){
+    return this.name;
+  }
+
+
+public void addPlayer(Player name){
+  if(this.size != this.maxSize){
+  players.add(name);
+  size++;
+  }
+  
+  
+  
+}
+
+public void printPlayers(){
+  for(Player p:players){
+    System.out.println(p);
+  }
+}
+
+public void setMaxSize(int maxSize){
+
+  this.maxSize = maxSize;
+
+  
+} 
+
+
+public int size(){
+  return players.size();
+}
+
+public int goals(){
+  int num = 0;
+for(int i = 0; i < players.size(); i++) {
+      num += (players.get(i)).getGoals();
+    }
+  return num;
+}
+
+  
+}
+//PLAYER FILE
+
+public class Player{
+
+private String name;
+private int goals;
+
+public Player(String name){
+this(name,0);
+}
+
+public Player(String name, int goals){
+this.name = name;
+this.goals = goals;
+}
+
+public String getName(String name){
+return this.name;
+}
+public int getGoals(){
+return this.goals;
+}
+
+public String toString(){
+return "Name: " +this.name+ ", goals: " +this.goals;
+
+}
+
+
+
+}
