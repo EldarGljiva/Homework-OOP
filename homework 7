@@ -1,0 +1,172 @@
+//TASK 1
+public class Main {
+  public static void main(String[] args) {
+    HashMap<String,String> people = new HashMap<String,String>();
+
+    people.put("matti", "mage");
+    people.put("mikael", "mixu");
+    people.put("arto", "arppa");
+
+    System.out.println(people.get("matti"));
+    System.out.println(people.get("mikael"));
+    System.out.println(people.get("arto"));
+  }
+}
+//TASK 2
+
+public class Main {
+  public static void main(String[] args) {
+    PromissoryNote mattisNote = new PromissoryNote();
+    
+    mattisNote.setLoan("Arto", 51.5);
+    mattisNote.setLoan("Mikale", 30.0);
+
+    System.out.println(mattisNote.howMuchIsDept("Arto"));
+    System.out.println(mattisNote.howMuchIsDept("Joel"));
+  }
+}
+
+
+
+public class PromissoryNote {
+  private HashMap<String, Double> people;
+
+  public PromissoryNote() {
+    this.people = new HashMap<String, Double>();
+  }
+
+  public void setLoan(String toWhom, double value) {
+    people.put(toWhom, value);
+  }
+
+  public double howMuchIsDept(String whose) {
+    if(people.get(whose) != null) {
+      return people.get(whose);
+    } else {
+      return 0;
+    }
+  }
+  
+  //TASK 3
+  
+  //MAIN
+  import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main{
+
+  public static void main(String[] args){
+
+Scanner reader = new Scanner(System.in);
+    Dictionary dictionary = new Dictionary();
+    TextUserInterface tui = new TextUserInterface(reader, dictionary);
+
+    dictionary.add("apina", "moneky");
+    dictionary.add("banaai", "banana");
+    dictionary.add("cembalo", "harpsichord");
+
+    System.out.println(dictionary.translate("apina"));
+    System.out.println(dictionary.translate("prokkana"));
+    System.out.println(dictionary.amountOfWords());
+
+    ArrayList<String> translationList = new ArrayList<String>();
+    translationList = dictionary.translationList();
+
+    for(int i = 0; i < translationList.size(); i++) {
+      System.out.println(translationList.get(i));
+    }
+
+    tui.start();
+  }
+}
+//DICTIONARY
+import java.util.HashMap;
+import java.util.ArrayList;
+
+public class Dictionary{
+  private HashMap<String,String> dictionary;
+
+  public Dictionary(){
+    this.dictionary = new HashMap<String,String>();
+  }
+public String translate(String word) {
+    if(dictionary.get(word) != null) {
+      return dictionary.get(word);
+    } else {
+      return null;
+    }
+  }
+  public void add(String word, String translation){
+    dictionary.put(word,translation);
+  }
+
+public int amountOfWords(){
+  return dictionary.size();
+}
+
+  public ArrayList<String> translationList() {
+    ArrayList<String> translationList = new ArrayList<String>();
+
+    for(String i: dictionary.keySet()) {
+      translationList.add(i + " = " + dictionary.get(i));
+    }
+
+    return translationList;
+  }
+
+  
+}
+//TextUserInterface
+import java.util.Scanner;
+
+
+
+public class TextUserInterface {
+  private Scanner reader;
+  private Dictionary dictionary;
+
+  public TextUserInterface(Scanner reader, Dictionary dictionary) {
+    this.reader = reader;
+    this.dictionary = dictionary;
+  }
+
+  public void start() {
+    String statement;
+
+    System.out.println("Statements: ");
+    System.out.println("add-adds a word pair to the dictionary");
+    System.out.println("translate-asks for a word and translates it");
+    System.out.println("quit-quits the text user interface");
+
+    System.out.print("Enter statement: ");
+    statement = reader.nextLine();
+
+    if(statement.equals("add")) {
+      String finsih;
+      String translation;
+
+      System.out.println("Statement: add");
+
+      System.out.print("In Finish: ");
+      finsih = reader.nextLine();
+
+      System.out.print("Translation: ");
+      translation = reader.nextLine();
+
+      dictionary.add(finsih, translation);
+      start();
+    } else if(statement.equals("translate")) {
+      String word;
+
+      System.out.println("Statement: translate");
+
+      System.out.print("Give a word: ");
+      word = reader.nextLine();
+
+      System.out.println("Translation: " + dictionary.translate(word));
+      start();
+    } else if(statement.equals("quit")) {
+      System.out.println("Bye!");
+    }
+  }
+}
